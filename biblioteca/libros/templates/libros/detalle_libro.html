@@ -1,0 +1,16 @@
+{% extends 'libros/base.html' %}
+
+{% block title %}{{ libro.titulo }}{% endblock %}
+
+{% block content %}
+    <h1 class="my-4">{{ libro.titulo }}</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Autor: {{ libro.autor }}</h5>
+            <p class="card-text"><strong>Fecha de Publicación:</strong> {{ libro.fecha_publicacion }}</p>
+            <p class="card-text"><strong>ISBN:</strong> {{ libro.isbn }}</p>
+            <img src="{{ libro.ruta_img }}" class="img-fluid" alt="Imagen de {{ libro.titulo }}">
+            <a href="{% url 'lista_libros' %}" class="btn btn-primary mt-3">Volver a la lista</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'libros/base.html' %}
+
+{% load form_tags %}
+
+{% block title %}Agregar Nuevo Libro{% endblock %}
+
+{% block content %}
+    <h1 class="my-4">Agregar Nuevo Libro</h1>
+    <form method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_titulo">Título</label>
+            {{ form.titulo|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+            <label for="id_autor">Autor</label>
+            {{ form.autor|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+            <label for="id_fecha_publicacion">Fecha de Publicación (aaaa-mm-dd)</label>
+            {{ form.fecha_publicacion|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+            <label for="id_isbn">ISBN</label>
+            {{ form.isbn|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+            <label for="id_ruta_img">Ruta de la Imagen - Direccion Web</label>
+            {{ form.ruta_img|add_class:"form-control" }}
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'lista_libros' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
+
